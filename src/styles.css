@@ -8,7 +8,6 @@
 
 body {
   margin: 0px;
-  margin-right: 40px;
   background-image: url("bg5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -20,6 +19,7 @@ section {
   max-width: 450px;
   width: 100%;
   margin: 50px;
+  margin-right: 50px;
 }
 
 h1 {
@@ -27,18 +27,21 @@ h1 {
   font-size: 2.6em;
   font-family: var(--tertiary);
   font-weight: bold;
+  margin-right: 40px;
 }
 
 p {
   text-align: justify;
   font-family: var(--primary);
   font-size: 1.5em;
+  margin-right: 40px;
 }
 
 h2 {
   text-align: left;
   font-family: var(--secondary);
   font-size: 1.8em;
+  margin-right: 40px;
 }
 
 input {
@@ -67,4 +70,5 @@ td {
   padding: 0.6rem;
   font-family: var(--primary);
   font-size: 1.5em;
+  margin-right: 40px;
 }
