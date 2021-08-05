@@ -19,7 +19,6 @@ section {
   max-width: 450px;
   width: 100%;
   margin: 50px;
-  margin-right: 50px;
 }
 
 h1 {
@@ -27,7 +26,6 @@ h1 {
   font-size: 2.6em;
   font-family: var(--tertiary);
   font-weight: bold;
-  margin-right: 40px;
 }
 
 p {
@@ -70,5 +68,8 @@ td {
   padding: 0.6rem;
   font-family: var(--primary);
   font-size: 1.5em;
+}
+
+table {
   margin-right: 40px;
 }
