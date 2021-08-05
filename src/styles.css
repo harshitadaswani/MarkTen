@@ -11,7 +11,7 @@ body {
   background-image: url("bg5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: scroll;
+  background-position: fixed;
   background-size: 100% 100%;
 }
 
