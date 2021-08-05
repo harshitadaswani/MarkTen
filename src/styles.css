@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&family=STIX+Two+Text:ital,wght@1,700&family=Source+Serif+Pro&display=swap");
+
+:root {
+  --primary: "Crimson Text", serif;
+  --secondary: "Source Serif Pro", serif;
+  --tertiary: "STIX Two Text", serif;
+}
+
+body {
+  margin: 0px;
+  background-image: url("bg5.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: scroll;
+  background-size: 100% 100%;
+}
+
+section {
+  max-width: 450px;
+  width: 100%;
+  margin: 50px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  font-family: var(--tertiary);
+  font-weight: bold;
+}
+
+p {
+  text-align: justify;
+  font-family: var(--primary);
+  font-size: 1.5em;
+}
+
+h2 {
+  text-align: left;
+  font-family: var(--secondary);
+  font-size: 1.8em;
+}
+
+input {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+}
+
+button {
+  display: block;
+  margin-left: 65px;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
