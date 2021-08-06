@@ -22,7 +22,7 @@ section {
 }
 
 h1 {
-  text-align: justify;
+  text-align: left;
   font-size: 2.4em;
   font-family: var(--tertiary);
   font-weight: bold;
@@ -72,4 +72,14 @@ td {
 
 table {
   margin-right: 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+#error-output {
+  font-family: var(--primary);
+  font-size: 1.5em;
+  padding-top: 1rem;
 }
