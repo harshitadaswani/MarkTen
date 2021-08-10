@@ -50,6 +50,7 @@ function clickHandlerNext() {
 }
 
 checkButton.addEventListener("click", function clickHandlerCheck() {
+  hideError();
   var billAmountValue = billAmount.value;
   var cashGivenValue = cashAmount.value;
   var balanceAmt = cashGivenValue - billAmountValue;
@@ -57,26 +58,28 @@ checkButton.addEventListener("click", function clickHandlerCheck() {
   errorOutputDiv.classList.add("hidden");
 
   if (cashGivenValue.length === 0 || billAmountValue.length === 0) {
-    errorOutputDiv.innerHTML =
-      "Enter valid bill amount and cash given to continue";
+    showErrorC("Enter valid bill amount and cash given to continue");
     errorOutputDiv.classList.remove("hidden");
   } else if (cashGivenValue < 0) {
     errorOutputDiv.innerHTML = "Enter valid cash amount to continue";
   } else if (balanceAmt < 0) {
-    errorOutputDiv.innerHTML =
-      "Cash is less than bill, please enter right amount";
+    showErrorC("Enter valid cash amount");
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt === 0) {
-    errorOutputDiv.innerHTML = "No amount should be returned";
+    showErrorC("Cash is less than bill, please enter right amount");
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt > 0) {
+    calculateNotes(balanceAmt);
+  }
+
+  function calculateNotes(balance) {
     for (var i = 0; i < 7; i++) {
       var element = arrayNoteAmt[i];
       var currentDenomination = document.getElementById(element);
       currentDenomination.innerHTML = "";
-      if (balanceAmt >= element) {
+      if (balance >= element) {
         var noOfNote = Math.floor(balanceAmt / element);
-        balanceAmt = balanceAmt - noOfNote * element;
+        balance = balance - noOfNote * element;
         currentDenomination.innerHTML = noOfNote;
         returnTable.classList.remove("hidden");
       }
@@ -88,6 +91,11 @@ function showError(text) {
   errorOutputDiv.style.display = "block";
   errorOutputDiv.innerText = text;
   cashGivenDiv.style.display = "none";
+}
+
+function showErrorC(text) {
+  errorOutputDiv.style.display = "block";
+  errorOutputDiv.innerText = text;
 }
 
 function hideError() {
