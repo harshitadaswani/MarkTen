@@ -50,22 +50,24 @@ function clickHandlerNext() {
 }
 
 checkButton.addEventListener("click", function clickHandlerCheck() {
-  var billAmountValue = Number(billAmount.value);
-  var cashGivenValue = Number(cashAmount.value);
+  var billAmountValue = billAmount.value;
+  var cashGivenValue = cashAmount.value;
   var balanceAmt = cashGivenValue - billAmountValue;
   returnTable.classList.add("hidden");
   errorOutputDiv.classList.add("hidden");
 
   if (cashGivenValue.length === 0 || billAmountValue.length === 0) {
-    showErrorC("Enter valid bill amount and cash given to continue");
+    errorOutputDiv.innerHTML =
+      "Enter valid bill amount and cash given to continue";
     errorOutputDiv.classList.remove("hidden");
   } else if (cashGivenValue < 0) {
-    showErrorC("Enter valid cash amount");
+    errorOutputDiv.innerHTML = "Enter valid cash amount to continue";
   } else if (balanceAmt < 0) {
-    showErrorC("Cash is less than bill, please enter right amount");
+    errorOutputDiv.innerHTML =
+      "Cash is less than bill, please enter right amount";
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt === 0) {
-    showErrorC("No amount should be returned");
+    errorOutputDiv.innerHTML = "No amount should be returned";
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt > 0) {
     for (var i = 0; i < 7; i++) {
@@ -86,11 +88,6 @@ function showError(text) {
   errorOutputDiv.style.display = "block";
   errorOutputDiv.innerText = text;
   cashGivenDiv.style.display = "none";
-}
-
-function showErrorC(text) {
-  errorOutputDiv.style.display = "block";
-  errorOutputDiv.innerText = text;
 }
 
 function hideError() {
