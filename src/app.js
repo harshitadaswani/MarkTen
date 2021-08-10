@@ -22,12 +22,22 @@ var returnTable = document.querySelector("#return-table");
 
 nextButton.addEventListener("click", () => {
   clickHandlerNext();
-  clearNoOfNotes();
 });
-checkButton.addEventListener("click", clickHandlerCheck);
 
 const noOfNotes = document.querySelectorAll(".noOfNotes");
+console.log(noOfNotes);
 const arrayNoteAmt = [2000, 500, 100, 20, 10, 5, 1];
+
+//if bill amt filled, display cash given input field
+nextButton.addEventListener("click", () => {
+  hideError();
+  if (Number(billAmount.value) > 0) {
+    nextButton.style.display = "none";
+    cashGivenDiv.style.display = "block";
+  } else {
+    showError("Enter valid bill amount");
+  }
+});
 
 // DISPLAYING CASH GIVEN ELEMENT
 function clickHandlerNext() {
@@ -39,7 +49,7 @@ function clickHandlerNext() {
   }
 }
 
-function clickHandlerCheck() {
+checkButton.addEventListener("click", function clickHandlerCheck() {
   var billAmountValue = billAmount.value;
   var cashGivenValue = cashAmount.value;
   var balanceAmt = cashGivenValue - billAmountValue;
@@ -47,15 +57,15 @@ function clickHandlerCheck() {
   errorOutputDiv.classList.add("hidden");
 
   if (cashGivenValue.length === 0 || billAmountValue.length === 0) {
-    errorOutputDiv.innerHTML =
-      "Enter valid bill amount and cash given to continue";
+    showErrorC("Enter valid bill amount and cash given to continue");
     errorOutputDiv.classList.remove("hidden");
+  } else if (cashGivenValue < 0) {
+    showErrorC("Enter valid cash amount");
   } else if (balanceAmt < 0) {
-    errorOutputDiv.innerHTML =
-      "Cash is less than bill, please enter right amount";
+    showErrorC("Cash is less than bill, please enter right amount");
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt === 0) {
-    errorOutputDiv.innerHTML = "No amount should be returned";
+    showErrorC("No amount should be returned");
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt > 0) {
     for (var i = 0; i < 7; i++) {
@@ -70,11 +80,26 @@ function clickHandlerCheck() {
       }
     }
   }
+});
+
+function showError(text) {
+  errorOutputDiv.style.display = "block";
+  errorOutputDiv.innerText = text;
+  cashGivenDiv.style.display = "none";
 }
 
-//if check button clicked without refreshing the page, clear the no of notes values on the screen
+function showErrorC(text) {
+  errorOutputDiv.style.display = "block";
+  errorOutputDiv.innerText = text;
+}
+
+function hideError() {
+  errorOutputDiv.style.display = "none";
+}
+
+/* //if check button clicked without refreshing the page, clear the no of notes values on the screen
 function clearNoOfNotes() {
   for (let notes of noOfNotes) {
     notes.innerText = "";
   }
-}
+} */
