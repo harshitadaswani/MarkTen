@@ -50,8 +50,8 @@ function clickHandlerNext() {
 }
 
 checkButton.addEventListener("click", function clickHandlerCheck() {
-  var billAmountValue = billAmount.value;
-  var cashGivenValue = cashAmount.value;
+  var billAmountValue = Number(billAmount.value);
+  var cashGivenValue = Number(cashAmount.value);
   var balanceAmt = cashGivenValue - billAmountValue;
   returnTable.classList.add("hidden");
   errorOutputDiv.classList.add("hidden");
