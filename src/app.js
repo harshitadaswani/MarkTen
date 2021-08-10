@@ -61,7 +61,7 @@ checkButton.addEventListener("click", function clickHandlerCheck() {
     showErrorC("Enter valid bill amount and cash given to continue");
     errorOutputDiv.classList.remove("hidden");
   } else if (cashGivenValue < 0) {
-    errorOutputDiv.innerHTML = "Enter valid cash amount to continue";
+    showErrorC("Enter valid cash amount to continue");
   } else if (balanceAmt < 0) {
     showErrorC("Enter valid cash amount");
     errorOutputDiv.classList.remove("hidden");
