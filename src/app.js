@@ -68,7 +68,7 @@ checkButton.addEventListener("click", function clickHandlerCheck() {
     showErrorC("Cash is less than bill, please enter right amount");
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt === 0) {
-    showErrorC("No change to be returned");
+    showErrorC("No Amount to be returned");
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt > 0) {
     calculateNotes(balanceAmt);
