@@ -103,10 +103,3 @@ function showErrorC(text) {
 function hideError() {
   errorOutputDiv.style.display = "none";
 }
-
-/* //if check button clicked without refreshing the page, clear the no of notes values on the screen
-function clearNoOfNotes() {
-  for (let notes of noOfNotes) {
-    notes.innerText = "";
-  }
-} */
