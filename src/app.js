@@ -39,16 +39,6 @@ nextButton.addEventListener("click", () => {
   }
 });
 
-// DISPLAYING CASH GIVEN ELEMENT
-function clickHandlerNext() {
-  if (billAmount.value.length === 0) {
-    billAmountNotValidDiv.innerText = "Enter valid bill amount";
-  } else {
-    cashGivenDiv.classList.remove("hidden");
-    billAmountNotValidDiv.classList.add("hidden");
-  }
-}
-
 checkButton.addEventListener("click", function clickHandlerCheck() {
   hideError();
   var billAmountValue = billAmount.value;
@@ -57,7 +47,7 @@ checkButton.addEventListener("click", function clickHandlerCheck() {
   returnTable.classList.add("hidden");
   errorOutputDiv.classList.add("hidden");
 
-  if (cashGivenValue.length === 0 || billAmountValue.length === 0) {
+  if (!cashGivenValue.length || !billAmountValue.length) {
     showErrorC("Enter valid bill amount and cash given to continue");
     errorOutputDiv.classList.remove("hidden");
   } else if (billAmountValue < 0) {
