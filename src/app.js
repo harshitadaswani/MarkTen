@@ -20,10 +20,6 @@ var errorOutputDiv = document.querySelector("#error-output");
 // TABLE
 var returnTable = document.querySelector("#return-table");
 
-nextButton.addEventListener("click", () => {
-  clickHandlerNext();
-});
-
 const noOfNotes = document.querySelectorAll(".noOfNotes");
 console.log(noOfNotes);
 const arrayNoteAmt = [2000, 500, 100, 20, 10, 5, 1];
@@ -62,22 +58,24 @@ checkButton.addEventListener("click", function clickHandlerCheck() {
     errorOutputDiv.classList.remove("hidden");
   } else if (balanceAmt > 0) {
     calculateNotes(balanceAmt);
-  }
-
-  function calculateNotes(balance) {
-    for (var i = 0; i < 7; i++) {
-      var element = arrayNoteAmt[i];
-      var currentDenomination = document.getElementById(element);
-      currentDenomination.innerHTML = "";
-      if (balance >= element) {
-        var noOfNote = Math.floor(balanceAmt / element);
-        balance = balance - (noOfNote * element);
-        currentDenomination.innerHTML = noOfNote;
-        returnTable.classList.remove("hidden");
-      }
-    }
+    showErrorC(`Amount To be Returned: ${balanceAmt}`);
   }
 });
+
+function calculateNotes(balance) {
+  for (var i = 0; i < 7; i++) {
+    var element = arrayNoteAmt[i];
+    var currentDenomination = document.getElementById(element);
+    currentDenomination.innerHTML = "";
+    if (balance >= element) {
+      var noOfNote = Math.floor(balance / element);
+      console.log(noOfNote);
+      balance = balance - noOfNote * element;
+      currentDenomination.innerHTML = noOfNote;
+      returnTable.classList.remove("hidden");
+    }
+  }
+}
 
 function showError(text) {
   errorOutputDiv.style.display = "block";
