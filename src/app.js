@@ -71,7 +71,7 @@ checkButton.addEventListener("click", function clickHandlerCheck() {
       currentDenomination.innerHTML = "";
       if (balance >= element) {
         var noOfNote = Math.floor(balanceAmt / element);
-        balance = balance - noOfNote * element;
+        balance = balance - (noOfNote * element);
         currentDenomination.innerHTML = noOfNote;
         returnTable.classList.remove("hidden");
       }
