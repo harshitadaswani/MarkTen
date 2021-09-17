@@ -1,5 +1,3 @@
-console.log("script is working");
-
 // INPUT ELEMENTS
 var billAmount = document.querySelector("#billAmt");
 var cashAmount = document.querySelector("#cashAmt");
@@ -14,12 +12,10 @@ var checkButton = document.querySelector("#checkBtn");
 
 // Message Divs
 var cashGivenDiv = document.querySelector(".cash-given");
-var billAmountNotValidDiv = document.querySelector("#bill-amount-not-valid");
 var errorOutputDiv = document.querySelector("#error-output");
 
 // TABLE
 var returnTable = document.querySelector("#return-table");
-
 const noOfNotes = document.querySelectorAll(".noOfNotes");
 console.log(noOfNotes);
 const arrayNoteAmt = [2000, 500, 100, 20, 10, 5, 1];
